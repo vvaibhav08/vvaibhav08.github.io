@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<a href="https://revealjs.com">
+						<img src="https://user-images.githubusercontent.com/15806078/153222406-af5ce6f0-4696-4a24-a683-46ad4939170c.gif" alt="reveal.js logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<h3>Reinforcement learning on OpenAI gym environments</h3>
+					<p>
+						<small>(I built tables...to operate on discrete and continuous problems)</small>
+					</p>
+				</section>
+
+				<section>
+					<h4>Reinforcement Learning: The agent-environment loop</h4>
+					<a href="https://revealjs.com">
+						<img src="https://gymnasium.farama.org/main/_images/AE_loop_dark.png" alt="reveal.js logo" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					
+					<small>
+						The agent selects an action based on a policy for the current observation in environment. The environment determines the reward and the next observation. The cycle then repeats itself until the environment ends (terminates).
+					</small>
+				</section>
+
+				<section>
+					<h4>Reinforcement Learning: The goal</h4>
+					<a href="https://revealjs.com">
+						<img src="https://gymnasium.farama.org/main/_images/AE_loop_dark.png" alt="reveal.js logo" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					
+					<small>
+						<ol>
+							<li>Observe current state</li>
+							<li>Take an action based on a policy</li>
+							<li>Receive a reward for the action taken</li>
+							<li>Update policy based on previous action/rewards</li>
+							<li>Repeat till optimal policy is found</li>
+						</ol>
+					</small>
+				</section>
+			
+				<section>
+					<h4>Q-learning</h4>
+					<br></br>
+					<small>
+						<ul>
+							<li>The Agent attempts to construct an optimal policy (a look-up table) by continuously interacting and learning more about the environment.</li>
+							<br></br>
+							<li>An optimal policy in the sense of maximizing the expected value of the total reward over any and all successive steps (state/action pair)</li>
+							<br></br>
+							<li>Maximizing rewards for each action/state pair means we have the optimal policy -> we know exactly what to do at each state.</li>
+						</ul>
+					</small>
+				</section>
+
+				<section>
+					<h4>Q-learning</h4>
+					<a href="https://revealjs.com">
+						<img src="https://wikidocs.net/images/page/169311/20_Q_Table.png" alt="reveal.js logo" style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<a href="https://revealjs.com">
+						<img src="https://wikidocs.net/images/page/169311/Fig_06.png" alt="reveal.js logo" style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4 data-id="code-title">Q-learning: update</h4>
+						<small>Update Q values with bellman equation</small>
+						<a href="https://revealjs.com">
+							<img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*EQ-tDj-iMdsHlGKUR81Xgw.png" alt="reveal.js logo" style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+						</a>
+						
+						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+							if self.random_rng.random() < self.epsilon:
+								return actions.sample()
+							else:
+								return np.argmax(self.Q[state, :])
+						</code></pre>
+						<small>Epsilon greedy policy, but decay epsilon so you explore more early and less later on.</small>
+					
+				</section>
+
+
+				<section>
+					<h4>Simple environments: FrozenLake</h4>
+					<small>
+						<ul>
+							<li>ACTIONS: Up, Down, Right, Left</li>
+							<br>
+							<li>REWARDS: Hole-0, Frozen-0, Goal-1</li>
+							<br>
+							<li>EPISODE END: Hole, Goal</li>
+						</ul>
+					</small>	
+					<a href="https://revealjs.com">
+						<img src="https://images.datacamp.com/image/upload/v1666973295/Q_Learning_Final_3344d28087.gif" alt="reveal.js logo" style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+				</section>
+
+				<section>
+					<h4>Simple environments: FrozenLake</h4>
+					<a href="https://revealjs.com">
+						<img src="qlearning_images/trainedQ_frozenlake.png" alt="reveal.js logo" style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<a href="https://revealjs.com">
+						<video height="320px; margin: 0 auto 4rem auto;" controls>
+							<source src="qlearning_images/FrozenLake_training.mp4" type="video/mp4">
+						  </video>
+					</a>
+				</section>
+
+
+				<section>
+					<h3>But it only works on boring grids?</h3>
+					<small>What about anything even slightly more complex and continuous?</small>
+					<a href="https://revealjs.com">
+						<img src="https://gymnasium.farama.org/main/_images/mountain_car_continuous.gif" alt="reveal.js logo" style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>	
+					<a href="https://revealjs.com">
+						<img src="https://user-images.githubusercontent.com/15806078/153222406-af5ce6f0-4696-4a24-a683-46ad4939170c.gif" alt="reveal.js logo" style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+				</section>
+
+
+				<section data-background-image="beer-heart.gif" data-background-size="800px">
+					<small>
+						<s>Deep Reinforcement Learning</s>
+					</small>
+					<br>
+					<small>
+						Painfully discretize states and actions and create a gigantic Q-table
+					</small>
+				</section>
+
+				<section>
+					<h4>continuous environments: MountainCar</h4>
+					<small>
+						<ul>
+							<li>ACTIONS: [-1,0,1] (Miniscule directional force)</li>
+							<br>
+							<li>STATES: {p,v} (continuous position-velocity space)</li>
+							<br>
+							<li>REWARDS: -0.1*action^2 per action; +100 goal</li>
+							<br>
+							<li>EPISODE END: outside bounds, Goal, # actions</li>
+						</ul>
+					</small>
+					<a href="https://revealjs.com">
+						<img src="https://gymnasium.farama.org/main/_images/mountain_car_continuous.gif" alt="reveal.js logo" style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+				</section>
+			
+
+				<section>
+					<h4>MountainCar: Build Q-table on discrete states </h4>
+					<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+						self.state_discrete_space = [
+								np.linspace(
+									self.gym_env.observation_space.low[i],
+									self.gym_env.observation_space.high[i],
+									self.discretize_grid_length,
+								)
+								for i in range(len(self.gym_env.observation_space.high))
+							]
+					</code></pre>
+					<a href="https://revealjs.com">
+						<img src="https://gymnasium.farama.org/main/_images/mountain_car_continuous.gif" alt="reveal.js logo" style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+				</section>
+
+				<section>
+					<h4>MountainCar: Build Q-table on discrete states </h4>
+					<a href="https://revealjs.com">
+						<img src="qlearning_images/trainedQ_MountainCar_15000.png" alt="reveal.js logo" style="height: 255px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<a href="https://revealjs.com">
+						<video height="320px; margin: 0 auto 4rem auto;" controls>
+							<source src="qlearning_images/MountainCar_training.mp4" type="video/mp4">
+						  </video>
+					</a>
+				</section>
+
+				<section>
+					<h4>2D environments?</h4>
+					<small>
+						<ul>
+							<li>ACTIONS: [0,1,2,3] (Directional force)</li>
+							<br>
+							<li>STATES: {p, v, legs_ground} (continuous 8D vector)</li>
+							<br>
+							<li>REWARDS: Multi-faceted</li>
+								<ul>
+									<li>+/- the closer/further to the pad</li>
+									<li>+/- the slower/faster</li>
+									<li>- tilt</li>
+									<li>+10 for each leg on ground</li>
+									<li>-0.03 for firing side engine</li>
+									<li>-0.3 for firing main engine</li>
+								</ul>
+							<br>
+							<li>EPISODE END: crash, outside bounds, Goal</li>
+						</ul>
+					</small>
+					<a href="https://revealjs.com">
+						<img src="https://user-images.githubusercontent.com/15806078/153222406-af5ce6f0-4696-4a24-a683-46ad4939170c.gif" alt="reveal.js logo" style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+				</section>
+
+				<section>
+					<h4>2D environments?</h4>
+					<small>
+						Lot of manual tries to understand what needs more discretization and where we can save compute time. Lot of hyperparameter tuning....... BUT doable, and fun when it does work!!
+					</small>
+					<br>
+				</br>
+					<a href="https://revealjs.com">
+						<img src="https://user-images.githubusercontent.com/15806078/153222406-af5ce6f0-4696-4a24-a683-46ad4939170c.gif" alt="reveal.js logo" style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+				</section>
+		
+				<section>
+					<h5>LunarLander: Build Q-table on discrete states (First 20k iterations)</h5>
+					<a href="https://revealjs.com">
+						<img src="qlearning_images/trainedQ_lunarlander_80000_FINAL.png" alt="reveal.js logo" style="height: 255px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<a href="https://revealjs.com">
+						<video height="320px; margin: 0 auto 4rem auto;" controls>
+							<source src="qlearning_images/first_20k_ll.mp4" type="video/mp4">
+						  </video>
+					</a>
+				</section>
+				<section>
+					<h5>LunarLander: Build Q-table on discrete states (Remaining iterations)</h5>
+					<a href="https://revealjs.com">
+						<img src="qlearning_images/trainedQ_lunarlander_80000_FINAL.png" alt="reveal.js logo" style="height: 255px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<a href="https://revealjs.com">
+						<video height="320px; margin: 0 auto 4rem auto;" controls>
+							<source src="qlearning_images/ll_40_80k_train.mp4" type="video/mp4">
+						  </video>
+					</a>
+				</section>
+				<section>
+					<h5>LunarLander: Build Q-table on discrete states (towards the end)</h5>
+					<a href="https://revealjs.com">
+						<img src="qlearning_images/trainedQ_lunarlander_80000_FINAL.png" alt="reveal.js logo" style="height: 255px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+					</a>
+					<a href="https://revealjs.com">
+						<video height="320px; margin: 0 auto 4rem auto;" controls>
+							<source src="qlearning_images/FinalTrained_LunarLander.mp4" type="video/mp4">
+						  </video>
+					</a>
+				</section>
+				
+
+
+				<section>
+					<h2>Point of View</h2>
+					<p>
+						Press <strong>ESC</strong> to enter the slide overview.
+					</p>
+					<p>
+						Hold down the <strong>alt</strong> key and click on any element to zoom towards it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Click again to zoom back out.
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
