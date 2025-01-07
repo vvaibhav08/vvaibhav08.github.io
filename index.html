@@ -1,10 +1,89 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>TTS Demo</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        textarea, select, button {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+        textarea {
+            height: 100px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #audioPlayer {
+            width: 100%;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
 <body>
+    <div class="container">
+        <h1>Text to Speech Demo</h1>
+        <textarea id="ttsText" placeholder="Enter text to convert to speech"></textarea>
+        <select id="ttsVoice">
+            <option value="us-male-1">US Male 1</option>
+            <option value="Donald Trump">Donald Trump</option>
+            <option value="Ben Shapiro">Ben Shapiro</option>
+            <option value="Elon Musk">Elon Musk</option>
+            <option value="Greta Thunberg">Greta Thunberg</option>
+            <option value="Cardi B">Cardi B</option>
+            
+        </select>
+        <button onclick="generateSpeech()">Generate Speech</button>
+        <audio id="audioPlayer" controls></audio>
+    </div>
 
-<h1>Welcome!</h1>
+    <script>
+        const API_KEY = 'YOUR_API_KEY'; // Store securely in production
 
-<p>This is where, I'll add cool projects that I fiddle around with</p>
+        async function generateSpeech() {
+            const text = document.getElementById('ttsText').value;
+            const voice = document.getElementById('ttsVoice').value;
+            const audioPlayer = document.getElementById('audioPlayer');
 
+            try {
+                const response = await fetch('https://api.neets.ai/v1/tts', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': API_KEY
+                    },
+                    body: JSON.stringify({
+                        text: text,
+                        voice_id: voice,
+                        params: {
+                            model: 'ar-diff-50k'
+                        }
+                    })
+                });
+
+                if (response.ok) {
+                    const blob = await response.blob();
+                    audioPlayer.src = URL.createObjectURL(blob);
+                    audioPlayer.style.display = 'block';
+                    audioPlayer.play();
+                } else {
+                    alert('Error generating speech');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error generating speech');
+            }
+        }
+    </script>
 </body>
 </html>
