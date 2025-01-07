@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>TTS Demo</title>
+    <script src="config.js"></script>
     <style>
         .container {
             max-width: 800px;
@@ -36,19 +37,20 @@
         <textarea id="ttsText" placeholder="Enter text to convert to speech"></textarea>
         <select id="ttsVoice">
             <option value="us-male-1">US Male 1</option>
-            <option value="Donald Trump">Donald Trump</option>
-            <option value="Ben Shapiro">Ben Shapiro</option>
-            <option value="Elon Musk">Elon Musk</option>
-            <option value="Greta Thunberg">Greta Thunberg</option>
-            <option value="Cardi B">Cardi B</option>
-            
+            <option value="trump">Donald Trump</option>
+            <option value="shapiro">Ben Shapiro</option>
+            <option value="musk">Elon Musk</option>
+            <option value="greta">Greta Thunberg</option>
+            <option value="cardib">Cardi B</option>
         </select>
         <button onclick="generateSpeech()">Generate Speech</button>
         <audio id="audioPlayer" controls></audio>
     </div>
 
     <script>
-        const API_KEY = config.YOUR_API_KEY; // Store securely in production
+        if (!window.config || !window.config.API_KEY) {
+            console.error('API Key not loaded');
+        }
 
         async function generateSpeech() {
             const text = document.getElementById('ttsText').value;
@@ -60,7 +62,7 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-API-Key': API_KEY
+                        'X-API-Key': window.config.API_KEY
                     },
                     body: JSON.stringify({
                         text: text,
