@@ -14,6 +14,9 @@ jobs:
         run: |
           echo "const config = { API_KEY: '${{ secrets.NEETS_API_KEY }}' };" > config.js
       
+      - name: List files
+        run: ls -la
+        
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
