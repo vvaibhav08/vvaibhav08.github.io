@@ -6,6 +6,22 @@
   <title>Writings – Vaibhav Vaidya</title>
   <link href="https://cdn.jsdelivr.net/npm/computer-modern-web-font@1.0.1/fonts/Serif/cmun-serif.css" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #fff;
+      --text-color: #333;
+      --link-color: #007acc;
+      --border-color: #eee;
+      --footer-color: #777;
+    }
+    
+    .dark-mode {
+      --bg-color: #1a1a1a;
+      --text-color: #e0e0e0;
+      --link-color: #4dabf7;
+      --border-color: #444;
+      --footer-color: #999;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Computer Modern Serif', serif;
@@ -74,5 +90,32 @@
   <footer>
     &copy; 2025 Vaibhav Vaidya. All rights reserved.
   </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    
+    // Check for saved theme preference or prefer-color-scheme
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.body.classList.add('dark-mode');
+      themeIcon.textContent = '🌙';
+    }
+    
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      
+      if (document.body.classList.contains('dark-mode')) {
+        themeIcon.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeIcon.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
 </body>
 </html>
