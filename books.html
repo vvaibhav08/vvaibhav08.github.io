@@ -52,6 +52,30 @@
       color: #777;
       border-top: 1px solid #eee;
     }
+    /* Dropdown styles */
+    details {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+    summary {
+      cursor: pointer;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      outline: none;
+      transition: color 0.3s ease;
+    }
+    summary:hover {
+      color: #007acc;
+    }
+    .book-content {
+      padding: 1rem;
+      margin-left: 1rem;
+      border-left: 2px solid #eee;
+    }
+    .book-content p {
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -66,13 +90,29 @@
   </header>
   <main>
     <section id="latest">
-      <h2>Latest Book</h2>
-      <p>Placeholder for the latest book you are planning to read. Add a short review or description here if you like.</p>
+      <h3>Things stuck with me from the books I read</h3>
+      
+      <details>
+        <summary>Meditations by Marcus Aurelius</summary>
+        <div class="book-content">
+          <p>My reflections on Stoicism and key lessons from Meditations will appear here.</p>
+          <p>This space will contain my thoughts on how Marcus Aurelius's philosophy applies to modern life.</p>
+        </div>
+      </details>
+      
+      <details>
+        <summary>Hitchhiker's Guide to the Galaxy by Douglas Adams</summary>
+        <div class="book-content">
+          <p>My thoughts on this science fiction classic and its humor will appear here.</p>
+          <p>Expect discussions about the meaning of life, the universe, and everything (42, of course).</p>
+        </div>
+      </details>
+      
     </section>
     <!-- Additional book entries can be added here -->
   </main>
   <footer>
-    &copy; 2025 Vaibhav Vaidya. All rights reserved.
+    &copy; 2025 Vaibhav Vaidya. Absolutely no rights reserved.
   </footer>
 </body>
 </html>
