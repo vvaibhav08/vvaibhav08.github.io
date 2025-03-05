@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Portfolio – Newest Works</title>
-  <!-- Load Computer Modern font -->
   <link href="https://cdn.jsdelivr.net/npm/computer-modern-web-font@1.0.1/fonts/Serif/cmun-serif.css" rel="stylesheet">
   <style>
     /* Basic reset */
@@ -23,6 +22,9 @@
     header h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
+    }
+    header h3 {
+      margin-top: 2rem;
     }
     nav {
       display: flex;
@@ -81,7 +83,7 @@
       <a href="code.html">code</a>
       <a href="books.html">books</a>
     </nav>
-    <h3>This is the website of Vaibhav Vaidya. I like to work and write about AI, astronomy, art, and books.</h3>
+    <h3>This is the website of Vaibhav Vaidya. I like to work and write about AI, astronomy, art, and books</h3>
   </header>
   <main>
     <div class="newest">
@@ -96,5 +98,199 @@
   <footer>
     &copy; 2025 Vaibhav Vaidya. Absolutely no rights reserved.
   </footer>
+</body>
+</html> -->
+
+hav08.github.io/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Portfolio – Newest Works</title>
+  <!-- Load Computer Modern font -->
+  <link href="https://cdn.jsdelivr.net/npm/computer-modern-web-font@1.0.1/fonts/Serif/cmun-serif.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #fff;
+      --text-color: #333;
+      --link-color: #007acc;
+      --border-color: #eee;
+      --footer-color: #777;
+    }
+    
+    .dark-mode {
+      --bg-color: #1a1a1a;
+      --text-color: #e0e0e0;
+      --link-color: #4dabf7;
+      --border-color: #444;
+      --footer-color: #999;
+    }
+    
+    /* Basic reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Computer Modern Serif', serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    header h3 {
+      margin-top: 2rem;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: var(--link-color);
+    }
+    
+    main {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+    
+    .newest {
+      text-align: left;
+    }
+    
+    .newest h2, .newest h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .newest ul {
+      list-style: none;
+    }
+    
+    .newest li {
+      margin-bottom: 1rem;
+    }
+    
+    .newest a {
+      text-decoration: none;
+      color: var(--link-color);
+      transition: color 0.3s ease;
+    }
+    
+    .newest a:hover {
+      text-decoration: underline;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: var(--footer-color);
+      border-top: 1px solid var(--border-color);
+    }
+    
+    /* Theme toggle button */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 8px 12px;
+      background: var(--bg-color);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .theme-toggle:hover {
+      border-color: var(--link-color);
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" id="themeToggle">
+    <span id="themeIcon">☀️</span> <span id="themeText">Dark</span>
+  </button>
+  
+  <header>
+    <nav>
+      <a href="about.html">about</a>
+      <a href="writings.html">writings</a>
+      <a href="code.html">code</a>
+      <a href="books.html">books</a>
+    </nav>
+    <h3>This is the website of Vaibhav Vaidya. I like to work and write about AI, astronomy, art, and books</h3>
+  </header>
+  <main>
+    <div class="newest">
+      <h3>Newest</h3>
+      <ul>
+        <li><a href="writings.html#latest">Latest Writing</a></li>
+        <li><a href="code.html#latest">Latest Code Project</a></li>
+        <li><a href="books.html#latest">Latest Book I Will Read</a></li>
+      </ul>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 Vaibhav Vaidya. Absolutely no rights reserved.
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+    
+    // Check for saved theme preference or prefer-color-scheme
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.body.classList.add('dark-mode');
+      themeIcon.textContent = '🌙';
+      themeText.textContent = 'Light';
+    }
+    
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      
+      if (document.body.classList.contains('dark-mode')) {
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Light';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Dark';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
 </body>
 </html>
