@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Portfolio – Newest Works</title>
-  <!-- Load Computer Modern font -->
+  <title>Writings – Vaibhav Vaidya</title>
   <link href="https://cdn.jsdelivr.net/npm/computer-modern-web-font@1.0.1/fonts/Serif/cmun-serif.css" rel="stylesheet">
   <style>
-    /* Basic reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Computer Modern Serif', serif;
@@ -28,6 +26,7 @@
       display: flex;
       justify-content: center;
       gap: 2rem;
+      margin-top: 1rem;
     }
     nav a {
       text-decoration: none;
@@ -43,26 +42,8 @@
       margin: 3rem auto;
       padding: 0 1rem;
     }
-    .newest {
-      text-align: left;
-    }
-    .newest h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-    .newest ul {
-      list-style: none;
-    }
-    .newest li {
-      margin-bottom: 1rem;
-    }
-    .newest a {
-      text-decoration: none;
-      color: #007acc;
-      transition: color 0.3s ease;
-    }
-    .newest a:hover {
-      text-decoration: underline;
+    section {
+      margin-bottom: 2rem;
     }
     footer {
       text-align: center;
@@ -75,23 +56,20 @@
 </head>
 <body>
   <header>
-    <h1>Vaibhav Vaidya</h1>
+    <h1>Writings</h1>
     <nav>
+      <a href="index.html">newest</a>
       <a href="about.html">about</a>
-      <a href="writings.html">writings</a>
       <a href="code.html">code</a>
       <a href="books.html">books</a>
     </nav>
   </header>
   <main>
-    <div class="newest">
-      <h2>Newest Works</h2>
-      <ul>
-        <li><a href="writings.html#latest">Latest Writing</a></li>
-        <li><a href="code.html#latest">Latest Code Project</a></li>
-        <li><a href="books.html#latest">Latest Book I Will Read</a></li>
-      </ul>
-    </div>
+    <section id="latest">
+      <h2>Latest Writing</h2>
+      <p>Placeholder for your latest writing work. You can update this with links or excerpts from your newest essays, articles, or blog posts.</p>
+    </section>
+    <!-- Additional writing entries can be added here -->
   </main>
   <footer>
     &copy; 2025 Vaibhav Vaidya. All rights reserved.
