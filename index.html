@@ -1,291 +1,149 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Portfolio – Newest Works</title>
-  <link href="https://cdn.jsdelivr.net/npm/computer-modern-web-font@1.0.1/fonts/Serif/cmun-serif.css" rel="stylesheet">
-  <style>
-    /* Basic reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Computer Modern Serif', serif;
-      background-color: #fff;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-      border-bottom: 1px solid #eee;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    header h3 {
-      margin-top: 2rem;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: #333;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #007acc;
-    }
-    main {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-    }
-    .newest {
-      text-align: left;
-    }
-    .newest h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-    .newest ul {
-      list-style: none;
-    }
-    .newest li {
-      margin-bottom: 1rem;
-    }
-    .newest a {
-      text-decoration: none;
-      color: #007acc;
-      transition: color 0.3s ease;
-    }
-    .newest a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #777;
-      border-top: 1px solid #eee;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="about.html">about</a>
-      <a href="writings.html">writings</a>
-      <a href="code.html">code</a>
-      <a href="books.html">books</a>
-    </nav>
-    <h3>This is the website of Vaibhav Vaidya. I like to work and write about AI, astronomy, art, and books</h3>
-  </header>
-  <main>
-    <div class="newest">
-      <h3>Newest</h3>
-      <ul>
-        <li><a href="writings.html#latest">Latest Writing</a></li>
-        <li><a href="code.html#latest">Latest Code Project</a></li>
-        <li><a href="books.html#latest">Latest Book I Will Read</a></li>
-      </ul>
-    </div>
-  </main>
-  <footer>
-    &copy; 2025 Vaibhav Vaidya. Absolutely no rights reserved.
-  </footer>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Portfolio – Newest Works</title>
-  <!-- Load Computer Modern font -->
+  <title>V. Vade | DJ Mixes</title>
   <link href="https://cdn.jsdelivr.net/npm/computer-modern-web-font@1.0.1/fonts/Serif/cmun-serif.css" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #fff;
-      --text-color: #333;
-      --link-color: #007acc;
-      --border-color: #eee;
-      --footer-color: #777;
+      --bg-color: #f5f1e8;
+      --text-color: #181715;
+      --muted-color: #6a655d;
+      --border-color: #d8d1c7;
+      --card-color: rgba(255, 255, 255, 0.72);
     }
-    
-    .dark-mode {
-      --bg-color: #1a1a1a;
-      --text-color: #e0e0e0;
-      --link-color: #4dabf7;
-      --border-color: #444;
-      --footer-color: #999;
-    }
-    
-    /* Basic reset */
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
+
     body {
       font-family: 'Computer Modern Serif', serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-    
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    
-    header h3 {
-      margin-top: 2rem;
-    }
-    
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-    }
-    
-    nav a {
-      text-decoration: none;
-      color: var(--text-color);
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-    
-    nav a:hover {
-      color: var(--link-color);
-    }
-    
-    main {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-    }
-    
-    .newest {
-      text-align: left;
-    }
-    
-    .newest h2, .newest h3 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .newest ul {
-      list-style: none;
-    }
-    
-    .newest li {
-      margin-bottom: 1rem;
-    }
-    
-    .newest a {
-      text-decoration: none;
-      color: var(--link-color);
-      transition: color 0.3s ease;
-    }
-    
-    .newest a:hover {
-      text-decoration: underline;
-    }
-    
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: var(--footer-color);
-      border-top: 1px solid var(--border-color);
-    }
-    
-    /* Theme toggle button */
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 8px 12px;
       background: var(--bg-color);
       color: var(--text-color);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      min-height: 100vh;
     }
-    
-    .theme-toggle:hover {
-      border-color: var(--link-color);
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 5rem 1rem;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 10vw, 4.75rem);
+      line-height: 0.95;
+      font-weight: 400;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      color: var(--muted-color);
+      font-size: 1rem;
+    }
+
+    .mix-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .mix-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid var(--border-color);
+      background: var(--card-color);
+    }
+
+    .mix-number {
+      color: var(--muted-color);
+      font-size: 0.95rem;
+    }
+
+    .mix-title {
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+
+    .mix-link,
+    .instagram-link {
+      color: var(--text-color);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 0.1rem;
+      white-space: nowrap;
+    }
+
+    .mix-link:hover,
+    .instagram-link:hover {
+      border-color: currentColor;
+    }
+
+    .connect {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .connect span {
+      color: var(--muted-color);
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding: 4rem 1rem;
+      }
+
+      .mix-card {
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+      }
+
+      .connect {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
-  <button class="theme-toggle" id="themeToggle">
-    <span id="themeIcon">☀️</span>
-  </button>
-  
-  <header>
-    <nav>
-      <a href="about.html">about</a>
-      <a href="writings.html">writings</a>
-      <a href="code.html">code</a>
-      <a href="books.html">books</a>
-    </nav>
-    <h3>This is the website of Vaibhav Vaidya. I like to work and write about AI, astronomy, art, and books</h3>
-  </header>
   <main>
-    <div class="newest">
-      <h3>Newest</h3>
-      <ul>
-        <li><a href="writings.html#latest">Latest Writing</a></li>
-        <li><a href="code.html#latest">Latest Code Project</a></li>
-        <li><a href="books.html#latest">Latest Book I Will Read</a></li>
-      </ul>
-    </div>
-  </main>
-  <footer>
-    &copy; 2025 Vaibhav Vaidya. Absolutely no rights reserved.
-  </footer>
+    <header>
+      <h1>V. Vade</h1>
+      <p>DJ mixes</p>
+    </header>
 
-  <script>
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = document.getElementById('themeIcon');
-    
-    // Check for saved theme preference or prefer-color-scheme
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem('theme');
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      document.body.classList.add('dark-mode');
-      themeIcon.textContent = '🌙';
-    }
-    
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      
-      if (document.body.classList.contains('dark-mode')) {
-        themeIcon.textContent = '🌙';
-        localStorage.setItem('theme', 'dark');
-      } else {
-        themeIcon.textContent = '☀️';
-        localStorage.setItem('theme', 'light');
-      }
-    });
-  </script>
+    <section class="mix-list" aria-label="DJ mixes">
+      <article class="mix-card">
+        <p class="mix-number">01</p>
+        <h2 class="mix-title">A Dialogue with Edit Select</h2>
+        <a href="https://on.soundcloud.com/RpBjkdb7rloJNGCH0h" class="mix-link" target="_blank" rel="noreferrer">Play</a>
+      </article>
+      <article class="mix-card">
+        <p class="mix-number">02</p>
+        <h2 class="mix-title">SPOTCAST009 - v.vade</h2>
+        <a href="https://on.soundcloud.com/GQCbQfAKXNt4wPTtrI" class="mix-link" target="_blank" rel="noreferrer">Play</a>
+      </article>
+      <article class="mix-card">
+        <p class="mix-number">03</p>
+        <h2 class="mix-title">V. Vade / 16-01-2026</h2>
+        <a href="https://on.soundcloud.com/ykmK9OPoO0A9PxDZy6" class="mix-link" target="_blank" rel="noreferrer">Play</a>
+      </article>
+    </section>
+
+    <section class="connect" aria-label="Instagram">
+      <span>Instagram</span>
+      <a href="https://www.instagram.com/_v.vade_/" class="instagram-link" target="_blank" rel="noreferrer">@_v.vade_</a>
+    </section>
+  </main>
 </body>
 </html>
